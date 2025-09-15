@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yucca Spa - Terapias Holísticas</title>
+
+ <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" href="img/favicon.ico" type="image/jfif" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Swiper CSS -->
+ <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  <!-- Swiper JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  
+
+</head>
+<body>
+
+  <!-- Pop-up de boas-vindas -->
+  <div id="popup" class="popup hide">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h2>🎉 Bem-vindo ao Yucca Spa!</h2>
+      <p>Ganhe <strong>10% de desconto</strong> no seu primeiro contato.</p>
+      <a href="https://wa.me/5519971011446" target="_blank" class="button">Agendar pelo WhatsApp</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>Yucca Spa</h1>
+    
+   <nav>
+      <button id="hamburgue-button" class="menu-toggle">
+        <span class="icon">☰</span>
+      </button>
+      <ul id="menu" class="menu">
+        <li><a href="#home" class="tab-link active">Home</a></li>
+        <li><a href="#Quem sou" class="tab-link">Quem sou</a></li>
+        <li><a href="#Viagens" class="tab-link">Viagens</a></li>
+        <li><a href="#produtos" class="tab-link">Produtos</a></li> <!-- NOVO MENU -->
+        <li class="dropdown">
+          <a href="#servicos" class="dropbtn tab-link">Serviços ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="#yoga" class="tab-link">Yoga</a></li>
+            <li><a href="#numerologia" class="tab-link">Numerologia</a></li>
+            <li><a href="#terapia-capilar" class="tab-link">Terapia Capilar</a></li>
+            <li><a href="#vale-presente" class="tab-link">Vale-Presente</a></li>
+          </ul>
+        </li>
+        <li><a href="#contato" class="tab-link">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  </header>
+  
+<section id="home" class="tab-content home-section">
+  <div class="home-container">
+
+    <!-- Carrossel de fotos do spa -->
+    <div class="home-carousel swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/yucca spa.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/yucca spa 2.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/yucca spa 3.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/yoga hOME.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/yoga home 2.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/yoga home 3.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/cabelelira.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/cabelo 2.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/numerologia2.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/numerologia1.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/viagens home.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/vale presente.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/remedios home.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/remedio 2.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/remedio 1.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/remedio 3.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/penultima.jpeg" alt="Foto do Spa"></div>
+        <div class="swiper-slide"><img src="img/fim.jpeg" alt="Foto do Spa"></div>
+      </div>
+      <!-- Botões e paginação -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Texto de boas-vindas -->
+  <div class="home-text">
+    <h1>✨ Yucca Spa ✨</h1>
+    <p>
+      Um espaço dedicado ao <strong>equilíbrio do corpo, mente e espírito</strong>.  
+      Descubra terapias holísticas, aulas de yoga, numerologia e aproveite nossos produtos naturais da <em>Saúde Yucca</em>, as viagens transformadoras do <em>Yucca Viagens</em> e a Terapia Capilar Integrativa para cuidar da sua beleza de dentro para fora.
+    </p>
+    <a href="https://wa.me/5519971011446" target="_blank" class="button-agendar pulse">
+      <i class="fab fa-whatsapp"></i> Agendar
+    </a>
+  </div>
+
+  <!-- Endereço e Mapa -->
+  <div class="home-map">
+    <h2>📍 Nosso Endereço</h2>
+    <p><strong>Rio Claro – SP</strong></p>
+    <p><strong>Endereço:</strong> 
+      <a href="https://www.google.com/maps/search/?api=1&query=Av.+P+9+-+Vila+Paulista,+Rio+Claro+-+SP" target="_blank">
+        Av. P 9 - Vila Paulista
+      </a>
+    </p>
+    <p><strong>Horário:</strong> Seg. a Sáb. – 9h às 19h</p>
+    <div class="mapa-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.629349829061!2d-47.5578!3d-22.3959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b8cfe46dc3c7%3A0x0000000000000000!2sAv.%20P%209%20-%20Vila%20Paulista%2C%20Rio%20Claro%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1691234567890!5m2!1spt-BR!2sbr" 
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+</section>
+
+
+ <!-- quem sou -->
+   <section id="Quem sou" class="tab-content Quem sou-section">
+  <div class="sobre-container">
+    <img src="img/quem sou.jpeg" alt="Terapeuta holística Suzy Yucca" class="sobre-img" />
+    <div class="sobre-text">
+      <h2>Quem Sou</h2>
+      <p>Sou Suzy Yucca, terapeuta holística apaixonada pelo poder de cura da natureza e do autoconhecimento. Minha missão é ajudar você a reconectar-se consigo mesma e despertar seu potencial de cura interna.</p>
+      <p>Minha formação inclui Reiki, Aromaterapia, Yoga e Numerologia, e uso essas ferramentas para oferecer um atendimento completo e eficaz.</p>
+      <h3>Minha filosofia</h3>
+      <p>Acredito que o equilíbrio entre corpo, mente e espírito é a chave para uma vida plena. Cada pessoa é única e merece cuidado especial para florescer em sua melhor versão.</p>
+      <h3>Depoimentos</h3>
+      <blockquote>
+        "O Yucca Spa transformou minha vida. As terapias me ajudaram a aliviar a ansiedade e reencontrar minha paz interior." – <em>Ana M.</em>
+      </blockquote>
+      <blockquote>
+        "As aulas de yoga são maravilhosas, me sinto mais forte e conectada comigo mesma." – <em>Lucas P.</em>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+    <!-- Serviços -->
+   <section id="servicos" class="tab-content servicos-section">
+  <div class="servicos-container">
+    <div class="servicos-text">
+     <h2>✨ Serviços de Terapias Holísticas e Yoga no Yucca Spa ✨</h2>
+      <p>🌸 No Yucca Spa oferecemos um cuidado completo para corpo, mente e espírito.
+        Nossos serviços promovem relaxamento, autoconhecimento e transformação, integrando terapias, produtos naturais e experiências únicas.</p>
+
+      <ul>
+        <li><strong>✨ Terapias Holísticas:</strong> Práticas integrativas para equilibrar energias, aliviar tensões e trazer bem-estar profundo. Cada sessão é personalizada de acordo com suas necessidades, unindo técnicas naturais que promovem paz interior e harmonia.</li>
+        <li><strong>🧘‍♀️ Aulas de Yoga:</strong> Práticas para fortalecer corpo e mente, para todos os níveis.</li>
+        <li><strong>🔮 Numerologia:</strong> Mapeamento do seu perfil energético para autoconhecimento.</li>
+        <li><strong>💆 Massagem Relaxante:</strong> Técnicas manuais que promovem relaxamento profundo, aliviam tensões musculares e restauram a energia vital do corpo.</li>
+        <li><strong>💇‍♀️ Terapia Capilar:</strong> Tratamento natural e personalizado para a saúde dos cabelos, promovendo equilíbrio do couro cabeludo, fortalecimento dos fios e estímulo ao crescimento saudável.</li>
+        <li><strong>🌱 Produtos Naturais – Saúde Yucca:</strong> Linha exclusiva de produtos que nutrem, fortalecem e equilibram suas energias.</li>
+        <li><strong>✈️ Viagens Espirituais – Yucca Viagens:</strong> Experiências transformadoras e imersivas para reconectar corpo e mente.</li>
+      </ul>
+
+      <h3>Benefícios das Terapias Holísticas</h3>
+      <ul>
+        <li>Redução do estresse e ansiedade</li>
+        <li>Melhora do sono e descanso</li>
+        <li>Fortalecimento do sistema imunológico</li>
+        <li>Aumento da concentração e foco</li>
+        <li>Autoconhecimento e equilíbrio emocional</li>
+      </ul>
+
+      <h3>Benefícios da Terapia Capilar</h3>
+      <ul>
+        <li>Redução da queda capilar</li>
+        <li>Cabelos mais fortes e brilhantes</li>
+        <li>Melhora da circulação do couro cabeludo</li>
+        <li>Equilíbrio da oleosidade e hidratação natural</li>
+      </ul>
+
+      <h3>Como funcionam as sessões?</h3>
+      <p>Cada sessão inicia com uma avaliação individual. Utilizamos técnicas integrativas para promover equilíbrio físico, emocional e energético.</p>
+
+      <a href="https://wa.me/5519971011446" target="_blank" class="button-agendar pulse">
+        <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
+      </a>
+    </div>
+</section>
+
+<!-- ================= PRODUTOS ================= -->
+<section id="produtos" class="tab-content produtos-section">
+  <h2>🌿 Produtos de Emagrecimento</h2>
+  <p>Transforme sua saúde com produtos naturais, eficazes e selecionados para você.</p>
+
+  <div class="produtos-grid">
+    <!-- Produto 1 -->
+    <div class="produto-card">
+      <img src="img/remedio 1.jpeg" alt="Chá Detox">
+      <h3>Chá detox</h3>
+      <a href="https://saudeyucca.lojavirtualnuvem.com.br/" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="produto-card">
+      <img src="img/remedio 2.jpeg" alt="Cápsulas Fit">
+      <h3>Cápsulas Fit</h3>
+      <p>Suplemento natural para perda de peso saudável.</p>
+      <a href="https://saudeyucca.lojavirtualnuvem.com.br/" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="produto-card">
+      <img src="img/remedio 3.jpeg" alt="Shake Nutritivo">
+      <h3>Shake Nutritivo</h3>
+      <p>Substituto de refeição rico em proteínas e fibras.</p>
+      <a href="https://saudeyucca.lojavirtualnuvem.com.br/" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+  </div>
+</section>
+
+  
+    <!-- Yoga -->
+    <section id="yoga" class="tab-content yoga-section">
+  <div class="yoga-container">
+     <img src="img/yoga pag yoga.jpeg" alt="img yoga">
+    <div class="yoga-text">
+      <h2>Aulas de Yoga no Yucca Spa</h2>
+      <p>Descubra o equilíbrio entre corpo e mente com nossas aulas de yoga, que combinam técnicas tradicionais e modernas para fortalecer sua saúde física e emocional.</p>
+      <ul>
+        <li>Ambiente tranquilo e acolhedor</li>
+        <li>Instrutores experientes e dedicados</li>
+        <li>Práticas para todos os níveis</li>
+        <li>Fortalecimento, flexibilidade e paz interior</li>
+      </ul>
+      <a href="https://wa.me/5519971011446" target="_blank" rel="noopener" class="button-agendar">
+        <i class="fab fa-whatsapp"></i> Agende sua aula agora
+      </a>
+
+    </div>
+  </div>
+</section>
+
+   <section id="numerologia" class="tab-content numerologia-section">
+  <div class="numerologia-container">
+    <video class="numerologia-video" controls muted>
+      <source src="video 2/Alinhamento dos Chakras e o Pai Nosso(144P).mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+    <div class="numerologia-text">
+      <h2>Consulta de Numerologia</h2>
+      <p>Explore seu autoconhecimento através dos números que influenciam sua vida. Nossas consultas personalizadas ajudam a revelar seu potencial e caminhos para equilíbrio e crescimento.</p>
+      <ul>
+        <li>Análise detalhada do seu perfil numérico</li>
+        <li>Descubra seus números de vida e destino</li>
+        <li>Orientação para decisões importantes</li>
+        <li>Desenvolvimento pessoal e espiritual</li>
+      </ul>
+     <a href="https://wa.me/5519971011446" target="_blank" rel="noopener" class="button-agendar">
+       <i class="fab fa-whatsapp"></i> Agende sua consulta agora
+     </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="terapia-capilar" class="tab-content terapia-capilar-section">
+  <div class="terapia-container">
+    <video class="terapia-video" controls muted>
+      <source src="videos/Cabelo.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+    <div class="terapia-text">
+      <h2>Terapia Capilar Integrativa</h2>
+      <p>Tratamento natural e personalizado para a saúde dos seus cabelos, promovendo fortalecimento, crescimento e equilíbrio do couro cabeludo.</p>
+      <ul>
+        <li>Redução da queda capilar</li>
+        <li>Fortalecimento dos fios</li>
+        <li>Estimulação do crescimento saudável</li>
+        <li>Melhora da circulação do couro cabeludo</li>
+        <li>Equilíbrio da oleosidade e hidratação natural</li>
+      </ul>
+      <a href="https://wa.me/5519971011446" target="_blank" rel="noopener" class="button-agendar">
+        <i class="fab fa-whatsapp"></i> Agende sua sessão agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Vale-Presentes -->
+<section id="vale-presente" class="tab-content">
+  <h2>Vale-Presentes Yucca Spa</h2>
+  <p>Presenteie quem você ama com experiências relaxantes e especiais.</p>
+
+  <!-- Seção Spa -->
+  <h3>Vale-Presente Spa</h3>
+  <div class="vale-grid">
+    <div class="vale-card">
+      <img src="img/vale 1.jpg" alt="Vale Massagem Relaxante" />
+      <h4>Vale Massagem Tulipa</h4>
+      <p>Massagem relaxante cromoterapia.</p>
+      <span class="price">R$ 190,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="vale-card">
+      <img src="img/vale 2.jpg" alt="Vale Presente Rosa" />
+      <h4>Vale Presente Rosa</h4>
+      <p>Massagem relaxante, revitalização facial e cromoterapia.</p>
+      <span class="price">R$ 255,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="vale-card">
+      <img src="img/vale.jpeg" alt="Vale Lotus Spa" />
+      <h4>Vale Lotus Spa</h4>
+      <p>Massagem relaxante facial, escalda-pés e cromoterapia.</p>
+      <span class="price">R$ 299,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+  </div>
+
+  <!-- Seção Terapia Capilar -->
+  <h3>Vale-Presente Terapia Capilar</h3>
+  <div class="vale-grid">
+    <div class="vale-card">
+      <img src="img/vale cabelo1.jpeg" alt="Vale Terapia Capilar" />
+      <h4>Vale Terapia Jasmim</h4>
+      <p>Corte de cabelo + hidratação + sombrancelha + cromoterapia.</p>
+      <span class="price">R$ 255,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="vale-card">
+      <img src="img/vale cabelo2.jpeg" alt="Vale Terapia Capilar" />
+      <h4>Vale Terapia Orquídea</h4>
+      <p>Escova terapêutica + massagem.</p>
+      <span class="price">R$ 190,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="vale-card">
+      <img src="img/vale cabelo3.jpeg" alt="Vale Terapia Capilar" />
+      <h4>Vale Terapia Lavanda</h4>
+      <p>Corte de cabelo + pé e mão + massagem facial com máscara de cromoterapia.</p>
+      <span class="price">R$ 290,00</span>
+      <a href="https://wa.me/5519971011446" target="_blank" class="btn-comprar">Comprar</a>
+    </div>
+  </div>
+</section>
+
+<!---------------- Yucca Viagens ----------->
+<section id="Viagens" class="tab-content">
+  <h2>✈️Yucca Viagens</h2>
+  <p class="intro">Explore experiências inesquecíveis com a Yucca Viagens! Descubra passeios incríveis ou conheça nossa agência de viagens especializada.</p>
+
+  <div class="viagem-grid">
+    <!-- Card Passeio de Barco -->
+    <div class="viagem-card">
+      <img src="img/barco.png" alt="Passeio de Barco em Paraty">
+      <h3>Passeio de Barco em Paraty - RJ</h3>
+      <p>Desfrute de um dia incrível em Paraty com nosso passeio de barco exclusivo.</p>
+      <a href="https://suzyyucca.my.canva.site/travel-website-in-blue-white-green-photocentric-travel-style" target="_blank" class="btn-viagem">Saiba Mais</a>
+    </div>
+
+    <!-- Card Agência de Viagens -->
+    <div class="viagem-card">
+      <img src="img/aviao.png" alt="Agência de Viagens Yucca">
+      <h3>Agência de Viagens Yucca</h3>
+      <p>Planeje suas férias com segurança e conforto com a nossa agência de viagens especializada.</p>
+      <a href="https://www.hadassaviagens.com.br/YUCCAVIAGENS" target="_blank" class="btn-viagem">Visitar Site</a>
+    </div>
+  </div>
+</section>
+
+
+    <section id="contato" class="tab-content contato-section">
+  <div class="contato-container">
+    <div class="contato-info">
+      <h2>Fale Conosco</h2>
+      <p>Estamos à disposição para tirar suas dúvidas e agendar seus atendimentos. Use o formulário abaixo ou entre em contato pelas redes sociais.</p>
+
+      <div class="contato-buttons">
+        <a href="https://wa.me/5519971011446" target="_blank" class="contato-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/spayucca/" target="_blank" class="contato-btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+    </div>
+
+    <form class="contato-form" id="contatoForm" action="#" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="Seu email" />
+      
+      <label for="mensagem">Mensagem / Dúvidas</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Dúvidas"></textarea>
+
+
+      <button type="submit" class="button-agendar">Enviar Mensagem</button>
+    </form>
+  </div>
+   </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Yucca Spa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

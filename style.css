@@ -1,0 +1,2034 @@
+:root {
+  --cor-fundo: #f5ffff;
+  --cor-texto: #2e3a35;
+  --cor-principal: #bff1c1;
+  --cor-secundaria: #2196f3;
+  --sombra-suave: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --sombra-media: 0 12px 24px rgba(0, 0, 0, 0.18);
+  --raio-borda: 12px;
+}
+    
+.menu-toggle {
+  display: none; /* escondido no desktop */
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: inherit; /* mantém cor do seu nav */
+}
+
+.menu {
+  list-style: none;
+  display: flex; /* mantém horizontal no desktop */
+  gap: 1rem; /* mantém espaçamento original */
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: inherit; /* mantém cor do nav */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* esconde por padrão no mobile */
+    flex-direction: column; /* vertical */
+    width: 100%;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block; /* botão aparece no mobile */
+  }
+
+  .dropdown-content {
+    position: static; /* dropdown vertical */
+  }
+}
+
+
+/* Estilo base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #476d5d;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Esconde o botão no desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* aparece no mobile */
+  }
+
+  .nav-links {
+    display: none; /* esconde o menu */
+    flex-direction: column;
+    background: #2e3a35;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .nav-links.active {
+    display: flex; /* mostra quando ativo */
+  }
+}
+
+
+/* Reset e fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.65;
+  font-weight: 400;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: var(--cor-principal);
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #245D4C; /* cor endereco */
+}
+
+.section p {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 1.1em;
+}
+
+/* Header */
+header {
+  background: linear-gradient(100deg, var(--cor-principal), var(--cor-secundaria));
+  padding: 18px 30px;
+  color: #ffffffcc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  user-select: none;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 6px rgba(0,0,0,0.15);
+  user-select: text;
+  flex-shrink: 0;
+}
+
+/* Nav */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin: 0;
+  padding-left: 0;
+  background-color: #a5eec6; /* verde-claro suave */
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a, 
+nav ul li button {
+  display: block;
+  padding: 14px 20px;
+  color: #004d40;
+  text-decoration: none;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 12px;
+  user-select: none;
+}
+
+nav ul li a:hover, 
+nav ul li button:hover,
+nav ul li a.active,
+nav ul li button.active {
+  background-color: #b2dfdb;
+  color: #00796b;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Ícone seta submenu */
+nav ul li button .fas.fa-caret-down {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #4caf50;
+}
+
+nav ul li.open > button .fas.fa-caret-down {
+  transform: rotate(180deg);
+  color: #2196f3;
+}
+
+/* Submenu */
+nav ul li .submenu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+  min-width: 220px;
+  padding: 14px 0;
+  z-index: 1100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  user-select: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+nav ul li.open > .submenu {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+nav ul li .submenu li a {
+  display: block;
+  padding: 14px 26px;
+  color: #2e3a35;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  border-radius: 12px;
+  user-select: text;
+}
+
+nav ul li .submenu li a:hover,
+nav ul li .submenu li a:focus-visible {
+  background-color: #a5d6a7;
+  color: #1b3a2b;
+  font-weight: 700;
+  outline: none;
+}
+
+/* Submenu para Serviços com botão estilo */
+nav ul li.servicos > ul.submenu {
+  background: #e0f2f1;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 0.5rem 0;
+  min-width: 180px;
+}
+
+nav ul li.servicos > ul.submenu li button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  text-align: left;
+  font-weight: 500;
+  color: #004d40;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+nav ul li.servicos > ul.submenu li button:hover {
+  background-color: #b2dfdb;
+}
+
+/* Dropdown Content legacy fallback */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Main content */
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 15px;
+  flex: 1;
+}
+
+/* Seções */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  color: #2a6f4e;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+/* Imagens */
+img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: var(--raio-borda);
+  margin-bottom: 20px;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  display: block;
+}
+
+img:not([src]), img[src=""] {
+  background-image: url(img/transferir.jfif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 320px;
+  display: block;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-suave);
+  opacity: 1;
+}
+
+img:hover {
+  transform: scale(1.04) translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.05) contrast(1.02) saturate(1.1);
+  cursor: pointer;
+}
+
+/* Vídeos e iframe */
+.tab-content video,
+.tab-content iframe {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: var(--raio-borda);
+  margin: 20px auto 30px;
+  display: block;
+  box-shadow: var(--sombra-media);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tab-content video:hover,
+.tab-content iframe:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+/* Borda diferente por seção */
+#servicos video,
+#servicos iframe {
+  border: 4px solid #8de3a3;
+}
+
+#yoga video,
+#yoga iframe {
+  border: 4px dashed #b2e0ff;
+}
+
+#numerologia video,
+#numerologia iframe {
+  border: 4px dotted #cfcfcf;
+}
+
+#terapia-capilar video,
+#terapia-capilar iframe {
+  border: 4px solid #9de8a2;
+}
+
+/* --------------- Vale-Presente -------------------- */
+#vale-presente {
+  text-align: center; /* centraliza títulos e parágrafos */
+  padding: 3rem 1.5rem;
+  background: #fefcf5;
+}
+
+/* Títulos */
+#vale-presente h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+#vale-presente h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #25d366;
+  margin: 2rem 0 1.5rem 0;
+}
+
+/* Parágrafo */
+#vale-presente p {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+/* Grid dos cards */
+.vale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center; /* centraliza os cards */
+}
+
+/* Cards */
+.vale-card {
+  background: #f5f3eb; 
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.18);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centraliza horizontalmente */
+  justify-content: center; /* centraliza verticalmente */
+  text-align: center;      /* centraliza texto */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vale-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+/* Imagens e vídeos */
+.vale-card img,
+.vale-card video {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+/* Títulos dos cards */
+.vale-card h4 {
+  color: #4a90e2;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Texto do card */
+.vale-card p {
+  color: #236b45;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Lista da terapia capilar */
+.vale-card ul {
+  text-align: left;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Preço */
+.vale-card .price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #25d366;
+  margin-bottom: 1.4rem;
+}
+
+/* Botão */
+.btn-comprar {
+  background-color: #25d366;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-comprar:hover {
+  background-color: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .vale-card img,
+  .vale-card video {
+    max-width: 100%;
+  }
+}
+
+
+
+
+/* Botões principais */
+.floating-agendar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366; /* verde WhatsApp */
+  color: white;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+}
+
+.floating-agendar:hover {
+  background: #1ebe57;
+  text-decoration: none;
+  color: white;
+}
+
+.floating-agendar i {
+  font-size: 20px;
+}
+
+
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+/* Pop-up */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.popup.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: fadeInUp 0.4s ease;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-popup:hover {
+  color: #333;
+  transform: scale(1.2);
+}
+
+/* Aba Contato - botões */
+.contato-buttons {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.contato-btn {
+  flex: 1 1 200px;
+  max-width: 280px;
+  background: var(--cor-principal);
+  color: #fff;
+  padding: 20px;
+  font-size: 1.25rem;
+  text-align: center;
+  border-radius: 35px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 5px 12px rgba(76, 175, 80, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+.contato-btn:hover {
+  background-color: #388e3c;
+  box-shadow: 0 8px 20px rgba(56, 142, 60, 0.6);
+  transform: translateY(-4px);
+}
+
+.contato-btn i {
+  font-size: 2.1rem;
+  transition: transform 0.3s ease;
+}
+
+.contato-btn:hover i {
+  transform: rotate(15deg) scale(1.2);
+}
+
+.contato-btn.whatsapp {
+  background: linear-gradient(45deg, #063b01, #56be66, #23f762, #366338, #063b01);
+  box-shadow: 0 5px 12px rgba(37, 211, 102, 0.5);
+}
+
+.contato-btn.whatsapp:hover {
+  background-color: #1ebe57;
+  box-shadow: 0 8px 20px rgba(30, 190, 87, 0.6);
+}
+
+.contato-btn.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 5px 12px rgba(204, 35, 136, 0.5);
+}
+
+.contato-btn.instagram:hover {
+  background: linear-gradient(45deg, #cc2366, #bc1888, #f09433, #e6683c, #dc2743);
+  box-shadow: 0 8px 20px rgba(188, 24, 136, 0.6);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #f0f4f3;
+  border-top: 1px solid #d6e3df;
+}
+
+/* Map */
+.mapa-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Submenu Serviços */
+nav ul li.servicos {
+  position: relative;
+}
+
+nav ul li.servicos > ul.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #e0f2f1; /* cor leve, ajuste conforme seu tema */
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 0.5rem 0;
+  display: none;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+nav ul li.servicos:hover > ul.submenu {
+  display: block;
+}
+
+nav ul li.servicos > ul.submenu li {
+  list-style: none;
+}
+
+nav ul li.servicos > ul.submenu li button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  text-align: left;
+  font-weight: 500;
+  color: #004d40;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li.servicos > ul.submenu li button:hover {
+  background-color: #b2dfdb;
+}
+
+/* Submenu genérico para outros menus */
+nav ul li {
+  position: relative;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* fundo do submenu */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+nav ul li ul li {
+  padding: 10px 15px;
+}
+
+nav ul li ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+nav ul li ul li a:hover {
+  background-color: #f0f0f0;
+  color: #1e88e5; /* cor no hover */
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+/*--------------------------------YOGA---------------------*/
+.yoga-container {
+  max-width: 900px; /* container menor */
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center; /* verticalmente alinhado */
+  flex-wrap: wrap; /* permite quebra no mobile */
+  background: #f9f9f9; /* fundo suave */
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #2e3a35;
+}
+
+.yoga-container img {
+  width: 40%; /* ocupa menos espaço */
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 280px;
+  box-shadow: 0 8px 28px rgba(74, 144, 226, 0.25);
+}
+
+.yoga-text {
+  flex: 1; /* ocupa o restante */
+}
+
+.yoga-text h2 {
+  color: #4a90e2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.yoga-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #236b45;
+}
+
+.yoga-text ul {
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #2e3a35;
+}
+
+.yoga-text ul li {
+  margin-bottom: 0.4rem;
+}
+
+.yoga-text a.button-agendar {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.yoga-text a.button-agendar:hover {
+  background-color: #1ebe57;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .yoga-container {
+    flex-direction: column;
+    max-width: 95%;
+    padding: 1rem;
+  }
+  .yoga-container img {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 1rem;
+  }
+  .yoga-text {
+    width: 100%;
+  }
+}
+
+/*--------------------------------NUMEROLOGIA---------------------*/
+.numerologia-section {
+  background: #f5f3eb; /* bege claro */
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  color: #2a3d66; /* azul escuro para texto */
+  font-family: 'Poppins', sans-serif;
+}
+
+.numerologia-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-direction: row; /* vídeo do lado esquerdo */
+}
+
+.numerologia-video {
+  flex: 1 1 350px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); /* sombra verde claro */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.numerologia-text {
+  flex: 1 1 400px;
+  color: #236b45; /* verde escuro */
+}
+
+.numerologia-text h2 {
+  color: #4a90e2; /* azul claro */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.numerologia-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.numerologia-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #236b45;
+}
+/*--------------------------------CAPILAR---------------------*/
+.terapia-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #f9f9f9;
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #2e3a35;
+}
+
+.terapia-container video {
+  width: 59%; /* de 50% para 55% */
+  border-radius: 12px;
+  max-height: 370px; /* de 320px para 360px */
+  object-fit: cover;
+  box-shadow: 0 8px 28px rgba(74, 144, 226, 0.25);
+}
+
+.terapia-text {
+  flex: 1;
+  max-width: 45%; /* para texto não ficar maior que 45% */
+}
+
+.terapia-text h2 {
+  color: #4a90e2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.terapia-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #236b45;
+}
+
+.terapia-text ul {
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #2e3a35;
+}
+
+.terapia-text ul li {
+  margin-bottom: 0.4rem;
+}
+
+.terapia-text a.button-agendar {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.terapia-text a.button-agendar:hover {
+  background-color: #1ebe57;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .terapia-container {
+    flex-direction: column;
+    max-width: 95%;
+    padding: 1rem;
+  }
+  .terapia-container video {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 1rem;
+  }
+  .terapia-text {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/*--------------------------------QUEM SOU---------------------*/
+.sobre-section {
+  background: #f5f3eb; /* bege claro */
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  color: #2a3d66; /* azul escuro */
+  font-family: 'Poppins', sans-serif;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-direction: row; /* imagem à esquerda, texto à direita */
+}
+
+.sobre-img {
+  flex: 0 0 45%;
+  max-width: 45%;
+  max-height: 500px; /* altura máxima do quadrado no desktop */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: #f5f3eb; /* cor de fundo para bordas */
+  padding: 8px; /* respiro entre a foto e o fundo */
+  display: block;
+}
+
+.sobre-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  color: #236b45; /* verde escuro */
+}
+
+.sobre-text h2 {
+  color: #4a90e2; /* azul claro */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sobre-text h3 {
+  color: #25d366; /* verde claro */
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.sobre-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.sobre-text blockquote {
+  font-style: italic;
+  color: #4a90e2;
+  border-left: 4px solid #25d366;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sobre-img,
+  .sobre-text {
+    flex: unset;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .sobre-text blockquote {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+  }
+}
+/*--------------------------------HOME---------------------*/
+/* HOME SECTION */
+.home-section {
+  background: #f5f3eb;
+  padding: 0; /* carrossel já ocupa topo */
+  font-family: 'Poppins', sans-serif;
+  color: #2a3d66;
+}
+
+/* Carrossel ocupa full width */
+.home-carousel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Texto centralizado */
+.home-text {
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.home-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #4a90e2;
+  margin-bottom: 1.2rem;
+}
+
+.home-text p {
+  font-size: 1.25rem;
+  color: #236b45;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* Botão agendar */
+.button-agendar {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-agendar:hover {
+  background-color: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* Animação pulse */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px #25d366; }
+  50% { box-shadow: 0 0 20px #25d366; }
+}
+.pulse { animation: pulse 2.5s infinite; }
+
+/* Mapa */
+.home-map {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.home-map h2 {
+  color: #4a90e2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.home-map p {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  color: #236b45;
+}
+
+.home-map a {
+  color: #25d366;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-map a:hover {
+  text-decoration: underline;
+  color: #1ebe57;
+}
+
+.mapa-container {
+  width: 100%;
+  height: 300px;
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.25);
+}
+
+/*--------------------------------SERVICOS---------------------*/
+/* ================== Serviços ================== */
+.servicos-section {
+  background: #f5f3eb; /* bege claro */
+  padding: 4rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #2a3d66;
+}
+
+.servicos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.servicos-text {
+  flex: 1 1 480px;
+  color: #236b45;
+}
+
+.servicos-text h2 {
+  font-size: 2.8rem;
+  color: #2a3d66; /* azul mais escuro para contraste */
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.servicos-text h3 {
+  margin-top: 2rem;
+  color: #1e7d4d; /* verde mais escuro para contraste */
+  font-weight: 600;
+}
+
+.servicos-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.servicos-text ul li {
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.servicos-text ul li:hover {
+  color: #25d366;
+}
+
+.servicos-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Vídeo */
+.servicos-video {
+  flex: 1 1 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.25);
+}
+
+.servicos-video iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: 16px;
+}
+
+/* Botão agendar */
+.button-agendar {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.button-agendar:hover {
+  background-color: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* Animação pulse */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px #25d366; }
+  50% { box-shadow: 0 0 20px #25d366; }
+}
+.pulse {
+  animation: pulse 2.5s infinite;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .servicos-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .servicos-text, .servicos-video {
+    flex: unset;
+    max-width: 100%;
+  }
+  .servicos-text h2 {
+    font-size: 2.2rem;
+  }
+  .servicos-video iframe {
+    height: 220px;
+  }
+  .button-agendar {
+    width: 100%;
+  }
+}
+
+/*--------------------------------CONTATO---------------------*/
+.contato-section {
+  background: #f5f3eb; /* bege claro */
+  padding: 4rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  color: #2a3d66; /* azul escuro */
+  font-family: 'Poppins', sans-serif;
+}
+
+.contato-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.contato-info {
+  flex: 1 1 350px;
+}
+
+.contato-info h2 {
+  color: #4a90e2; /* azul claro */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contato-info p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #236b45; /* verde escuro */
+}
+
+/* Botões WhatsApp e Instagram */
+.contato-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.contato-btn {
+  flex: 1;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.contato-btn i {
+  font-size: 1.4rem;
+}
+
+/* Cores específicas */
+.contato-btn.whatsapp {
+  background-color: #25d366;
+}
+
+.contato-btn.whatsapp:hover {
+  background-color: #1ebe57;
+}
+
+.contato-btn.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  box-shadow: 0 6px 18px rgba(253, 89, 73, 0.5);
+}
+
+.contato-btn.instagram:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* Formulário */
+.contato-form {
+  flex: 1 1 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contato-form label {
+  font-weight: 600;
+  color: #236b45;
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #4a90e2;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  outline: none;
+  border-color: #25d366;
+  box-shadow: 0 0 6px #25d366;
+}
+
+.contato-form textarea {
+  min-height: 120px;
+}
+
+.button-agendar {
+  margin-top: 1rem;
+  background-color: #25d366;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-agendar:hover {
+  background-color: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .contato-container {
+    flex-direction: column;
+  }
+  .contato-info,
+  .contato-form {
+    flex: unset;
+    max-width: 100%;
+  }
+}
+
+/*--------------------------------CAPILAR---------------------*/
+.terapia-container {
+  max-width: 850px; /* reduzido um pouco */
+  margin: 2rem auto;
+  display: flex;
+  gap: 1.5rem; /* diminuiu espaçamento */
+  align-items: center;
+  flex-wrap: wrap;
+  background: #f9f9f9;
+  padding: 1.5rem 1.8rem; /* padding levemente menor */
+  border-radius: 12px; /* bordas mais suaves */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  font-family: 'Poppins', sans-serif;
+  color: #2e3a35;
+}
+
+.terapia-container video {
+  width: 55%; /* ajustado */
+  border-radius: 10px;
+  max-height: 320px; /* menor */
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2);
+}
+
+.terapia-text {
+  flex: 1;
+  max-width: 40%; /* menor para equilibrar com o vídeo */
+}
+
+.terapia-text h2 {
+  color: #4a90e2;
+  font-weight: 700;
+  font-size: 1.8rem; /* menor */
+  margin-bottom: 0.8rem;
+}
+
+.terapia-text p {
+  font-size: 1rem; /* menor */
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #236b45;
+}
+
+.terapia-text ul {
+  margin-bottom: 0.8rem;
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: #2e3a35;
+}
+
+.terapia-text ul li {
+  margin-bottom: 0.3rem;
+}
+
+.terapia-text a.button-agendar {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 0.5rem 1.2rem; /* menor */
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.terapia-text a.button-agendar:hover {
+  background-color: #1ebe57;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .terapia-container {
+    flex-direction: column;
+    max-width: 95%;
+    padding: 1rem;
+  }
+  .terapia-container video {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 1rem;
+  }
+  .terapia-text {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*--------------------------------PRODUTOS---------------------*/
+section#produtos {
+  font-family: 'Poppins', sans-serif;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  padding: 1.8rem 1rem;
+}
+
+section#produtos h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+section#produtos p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+section#produtos .produtos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+section#produtos .produto-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  text-align: center;
+  padding: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+section#produtos .produto-card:hover {
+  transform: translateY(-4px);
+}
+
+section#produtos .produto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+}
+
+section#produtos h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin: 0.8rem 0;
+}
+
+section#produtos p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+section#produtos .price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #e67e22;
+  margin-bottom: 0.8rem;
+}
+
+section#produtos .btn-comprar {
+  display: inline-block;
+  background: var(--cor-principal);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+section#produtos .btn-comprar:hover {
+  background: #27ae60;
+}
+
+/* ---------------------------------Container do carrossel ---------------------------*/
+.home-carousel {
+  width: 100%;
+  max-width: 900px; /* largura reduzida */
+  margin: 2rem auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px f5dada(0, 0, 0, 0.15);
+  position: relative;
+  background: #d6e6e4; /* fundo atrás das imagens */
+}
+
+/* Slides */
+.home-carousel img {
+  width: 100%;
+  height: auto;              
+  max-height: 420px;         /* altura proporcional */
+  object-fit: contain;       
+  transition: transform 0.5s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.home-carousel img:hover {
+  transform: scale(1.02);
+}
+
+/* Botões de navegação */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-principal);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  border-radius: 50%;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(255, 230, 230, 0.2);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--cor-principal);
+  color: white;
+}
+
+/* Paginação (bolinhas) */
+.swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.2);
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--cor-principal);
+  transform: scale(1.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-carousel {
+    max-width: 95%; /* ocupa quase toda tela no mobile */
+  }
+
+  .home-carousel img {
+    max-height: 280px; /* altura reduzida no mobile */
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    padding: 0.3rem;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+
+/*--------------------------------YUCCA VIAGENS TURBINADO---------------------*/
+/*---------------------- YUCCA VIAGENS (ESTILO IGUAL VALE-PRESENTE) ----------------------*/
+#Viagens {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9f9f9 0%, #f9f9f9 100%);
+  color: var(--cor-texto);
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center; /* centraliza título e parágrafo */
+}
+
+
+/* Fundo decorativo */
+#yucca-viagens::before,
+#yucca-viagens::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(157, 228, 165, 0.12);
+  z-index: 0;
+}
+#yucca-viagens::before {
+  width: 280px; height: 280px;
+  top: -90px; left: -90px;
+}
+#yucca-viagens::after {
+  width: 220px; height: 220px;
+  bottom: -70px; right: -70px;
+}
+
+/* Título */
+#Viagens h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+#yucca-viagens h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0.6rem auto 0 auto;
+  background: linear-gradient(90deg, #6fb496, #f9f9f9);
+  border-radius: 2px;
+}
+
+/* Texto intro */
+#yucca-viagens p.intro {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  color: #4a4a4a;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid dos cards */
+.viagem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card no estilo vale-presente */
+.viagem-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.viagem-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+/* Imagem */
+.viagem-card img {
+  max-width: 100%;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  transition: transform 0.5s ease;
+}
+.viagem-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Título */
+#yucca-viagens h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  text-align: center;
+  margin: 0 auto 1rem auto; /* centraliza */
+  display: block; /* garante que o margin funcione */
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Texto */
+.viagem-card p {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Botão estilo vale-presente */
+.viagem-card a.btn-viagem {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #9de4a5, #7fd1ae);
+  box-shadow: 0 4px 15px rgba(127,209,174,0.4);
+  transition: all 0.3s ease;
+}
+.viagem-card a.btn-viagem:hover {
+  background: linear-gradient(135deg, #7fd1ae, #4caf50);
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #yucca-viagens h2 { font-size: 1.8rem; }
+  #yucca-viagens p.intro { font-size: 1rem; }
+  .viagem-card h3 { font-size: 1.4rem; }
+}
+
+/* --------------------------------- PRODUTOS ----------------------------*/
+.produtos-section {
+  padding: 3rem 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.produtos-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2ecc71;
+}
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.produto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+}
+
+.produto-card {
+  background: #f5f3eb; /* bege claro */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.18); /* sombra verde claro */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+.produto-card img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2); /* sombra azul claro */
+}
+
+.produto-card h3 {
+  color: #4a90e2; /* azul claro */
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.produto-card p {
+  color: #236b45; /* verde escuro */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.produto-card .price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #25d366; /* verde WhatsApp */
+  margin-bottom: 1.4rem;
+}
+.preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e67e22;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.btn-comprar {
+  display: inline-block;
+  background: #2ecc71;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-comprar:hover {
+  background: #27ae60;
+}
